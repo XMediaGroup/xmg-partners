@@ -205,6 +205,19 @@ h2{font-size:clamp(34px,4.8vw,60px);margin-bottom:18px;}
 .tcard .tmv{font-family:var(--display);font-size:22px;font-weight:600;color:var(--ink);line-height:1;}
 .tcard .tml{font-size:11px;color:var(--ink-mut);margin-top:4px;}
 .more-note{text-align:center;font-size:13px;color:var(--muted2);margin-top:22px;}
+/* video testimonials (9:16, inline YouTube) */
+.vids{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:22px;}
+.vcard{position:relative;border-radius:16px;overflow:hidden;background:#0c0c10;border:1px solid rgba(255,255,255,0.1);box-shadow:0 24px 60px rgba(0,0,0,0.4);}
+.vcard .vframe{position:relative;width:100%;aspect-ratio:9/16;cursor:pointer;overflow:hidden;}
+.vcard .vframe iframe,.vcard .vthumb{position:absolute;inset:0;width:100%;height:100%;border:0;}
+.vcard .vthumb{object-fit:cover;display:block;}
+.vcard .vplay{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:58px;height:58px;border-radius:50%;background:rgba(0,0,0,0.5);backdrop-filter:blur(4px);border:1px solid rgba(255,255,255,0.45);color:#fff;display:flex;align-items:center;justify-content:center;pointer-events:none;transition:transform .2s,background .2s;}
+.vcard .vframe:hover .vplay{transform:translate(-50%,-50%) scale(1.08);background:rgba(0,0,0,0.65);}
+.vcard .vplay svg{width:22px;height:22px;margin-left:3px;}
+.vph{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;color:var(--muted2);font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;}
+.vph .vph-ic{width:52px;height:52px;border-radius:50%;border:1px solid rgba(177,171,148,0.35);display:flex;align-items:center;justify-content:center;color:var(--accent);}
+.vph .vph-ic svg{width:20px;height:20px;margin-left:2px;}
+.vcard figcaption{padding:13px 15px;font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--text);border-top:1px solid rgba(255,255,255,0.08);}
 
 /* who it's for */
 .ff{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:24px;}
@@ -325,7 +338,8 @@ footer{border-top:1px solid var(--border);padding:40px 48px;display:flex;justify
     .fw2-tile .fw2-desc{max-height:none;opacity:1;margin-top:12px;}
     .fw2-tile .glassbg{opacity:1;}
     .fw2-num{font-size:170px;}
-    .tl-grid,.ff,.excl .two,.price-cards,.stat-grid,.vip .vfeat,.tgrid,.ba{grid-template-columns:1fr;}
+    .tl-grid,.ff,.excl .two,.price-cards,.stat-grid,.vip .vfeat,.ba{grid-template-columns:1fr;}
+    .vids{grid-template-columns:1fr 1fr;}
     .tl-grid .tl-card{grid-column:1 !important;}
     .tl-axis{display:none;}
     .tl-card::before{display:none;}
@@ -368,9 +382,9 @@ footer{border-top:1px solid var(--border);padding:40px 48px;display:flex;justify
 
 <!-- HERO -->
 <section class="hero" id="top">
-    <div class="eyebrow">A content and ads partnership for local businesses</div>
+    <div class="eyebrow">Videos and ads for local businesses</div>
     <h1>Become the <span class="mark">go-to business</span> for your industry in your area.</h1>
-    <p class="lead">You're not really after more videos. You're after more customers. We handle the filming, the editing, the content and the ads, so you can get on with running the business.</p>
+    <p class="lead">You don't really want more videos. You want more customers. We do the filming, the editing, the posts and the ads, so you can get on with running your business.</p>
     <div class="hero-cta">
         <a class="btn" href="#how">See how it works &rarr;</a>
     </div>
@@ -386,11 +400,11 @@ footer{border-top:1px solid var(--border);padding:40px 48px;display:flex;justify
     <div class="wrap">
         <div class="label reveal">The shift</div>
         <h2 class="reveal">The game has changed, and most businesses <span class="mark">haven't even clocked it yet.</span></h2>
-        <p class="lead reveal">The businesses winning locally aren't the ones with the prettiest feed. They're the ones with a system that shows up, again and again and again.</p>
+        <p class="lead reveal">The businesses winning in your area aren't the ones with the nicest looking posts. They're the ones who show up, again and again and again.</p>
         <div class="subhead reveal">This might sound familiar...</div>
         <div class="rows">
             <div class="row reveal"><span class="ricon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4.5" width="18" height="16" rx="2"/><path d="M3 9h18M8 2.5v4M16 2.5v4"/><path d="M10 13l4 4M14 13l-4 4"/></svg></span><div><h3>Posting with no plan</h3><p>A reel here, a story there, whenever you get a spare minute. It's a bit like getting in a taxi and not telling the driver where you're going. No direction, so it never really takes you anywhere.</p></div></div>
-            <div class="row reveal"><span class="ricon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M10 9l5 3-5 3z"/></svg></span><div><h3>Pretty videos that don't pay</h3><p>Nice footage isn't the goal. At the end of the day you're not after content, you're after bookings. It has to be built to actually sell.</p></div></div>
+            <div class="row reveal"><span class="ricon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M10 9l5 3-5 3z"/></svg></span><div><h3>Nice videos that don't bring in money</h3><p>A good looking video isn't the point. At the end of the day you don't want videos, you want bookings. They've got to be made to actually sell.</p></div></div>
             <div class="row reveal"><span class="ricon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3l18 18"/><path d="M10.6 5.1A9.9 9.9 0 0112 5c5 0 9 4.6 9 7a12.2 12.2 0 01-2.2 3.2M6.2 6.2C3.9 7.7 2.3 10 2.3 12c0 0 3.5 6.8 9.7 6.8 1.6 0 3-.4 4.2-1"/><path d="M9.5 9.6a3 3 0 004 4"/></svg></span><div><h3>Invisible to the people ready to buy</h3><p>Your competitor is showing up more often than you, so they get the trust and they get the call. Even when your work is better.</p></div></div>
         </div>
     </div>
@@ -403,8 +417,8 @@ footer{border-top:1px solid var(--border);padding:40px 48px;display:flex;justify
         <div class="wd-grid">
             <div class="wd-copy reveal">
                 <h2>You stop paying for videos. You start running <span class="mark">a flywheel.</span></h2>
-                <p>Paid ads bring the cold people in. Organic content nurtures them. We help you close them into customers. Then you deliver so much value that they hand us a cracking testimonial, and that testimonial becomes an example of another paid ad. That's the flywheel.</p>
-                <p class="big-line">The more we put into it, the faster it spins. And the faster it spins, the more results it throws off for you.</p>
+                <p>Ads get you in front of people who've never heard of you. Your posts and videos build trust with them over time, until that trust turns them into paying customers. Then you do such a great job that they leave you a glowing review, and we turn that review into the next ad. That's the flywheel.</p>
+                <p class="big-line">The more we put in, the faster it spins. And the faster it spins, the more customers it brings you.</p>
             </div>
             <div class="wd-diagram reveal">
                 <div class="wheel-wrap">
@@ -412,10 +426,10 @@ footer{border-top:1px solid var(--border);padding:40px 48px;display:flex;justify
                         <div class="wheel-ring"></div>
                         <img class="wheel-x" src="glass-x-cutout.png" alt="">
                     </div>
-                    <div class="wheel-node wn-top"><div class="wn-num">1</div><div class="wn-t">Paid ads</div><div class="wn-s">Bring cold people in</div></div>
-                    <div class="wheel-node wn-right"><div class="wn-num">2</div><div class="wn-t">Organic content</div><div class="wn-s">Nurture and build trust</div></div>
-                    <div class="wheel-node wn-bottom"><div class="wn-num">3</div><div class="wn-t">Acquire customers</div><div class="wn-s">Turn warm into paying</div></div>
-                    <div class="wheel-node wn-left"><div class="wn-num">4</div><div class="wn-t">Deliver and capture</div><div class="wn-s">Value, then a testimonial that becomes the next ad</div></div>
+                    <div class="wheel-node wn-top"><div class="wn-num">1</div><div class="wn-t">Ads</div><div class="wn-s">Get seen by new people</div></div>
+                    <div class="wheel-node wn-right"><div class="wn-num">2</div><div class="wn-t">Posts and videos</div><div class="wn-s">Build trust over time</div></div>
+                    <div class="wheel-node wn-bottom"><div class="wn-num">3</div><div class="wn-t">Win customers</div><div class="wn-s">Turn interest into sales</div></div>
+                    <div class="wheel-node wn-left"><div class="wn-num">4</div><div class="wn-t">Wow them</div><div class="wn-s">Great work, then a review to use again</div></div>
                 </div>
             </div>
         </div>
@@ -428,10 +442,10 @@ footer{border-top:1px solid var(--border);padding:40px 48px;display:flex;justify
         <div class="label reveal" style="justify-content:center;">The framework</div>
         <h2 class="reveal">The Creative Partners Flywheel&#8482;</h2>
         <div class="fw2-row reveal">
-            <div class="fw2-tile"><div class="glassbg"></div><div class="fw2-num">1</div><div class="fw2-inner"><div class="fw2-word">Awareness</div><div class="fw2-desc">We put your brand in front of people who have never heard of you, with targeted ads and content. Strangers start seeing you everywhere.</div></div></div>
-            <div class="fw2-tile"><div class="glassbg"></div><div class="fw2-num">2</div><div class="fw2-inner"><div class="fw2-word">Recognition</div><div class="fw2-desc">They follow, they engage, and they start to see you as the go-to name in your space. You stop being invisible and start being considered.</div></div></div>
-            <div class="fw2-tile"><div class="glassbg"></div><div class="fw2-num">3</div><div class="fw2-inner"><div class="fw2-word">Desire</div><div class="fw2-desc">Recognition turns into genuine desire. They're warm, they're watching, and your content does the selling before a conversation even starts.</div></div></div>
-            <div class="fw2-tile"><div class="glassbg"></div><div class="fw2-num">4</div><div class="fw2-inner"><div class="fw2-word">Action</div><div class="fw2-desc">Desire becomes action. Warm audiences turn into booked enquiries and paying customers, month after month.</div></div></div>
+            <div class="fw2-tile"><div class="glassbg"></div><div class="fw2-num">1</div><div class="fw2-inner"><div class="fw2-word">Get seen</div><div class="fw2-desc">We put you in front of people who've never heard of you, with ads and posts. Complete strangers start seeing you everywhere.</div></div></div>
+            <div class="fw2-tile"><div class="glassbg"></div><div class="fw2-num">2</div><div class="fw2-inner"><div class="fw2-word">Get known</div><div class="fw2-desc">They follow you, they like your stuff, and they start to see you as the name to go to. You stop being invisible.</div></div></div>
+            <div class="fw2-tile"><div class="glassbg"></div><div class="fw2-num">3</div><div class="fw2-inner"><div class="fw2-word">Get wanted</div><div class="fw2-desc">Now they actually want what you do. They're warm, they're watching, and your videos do the selling before you even speak to them.</div></div></div>
+            <div class="fw2-tile"><div class="glassbg"></div><div class="fw2-num">4</div><div class="fw2-inner"><div class="fw2-word">Get booked</div><div class="fw2-desc">They get in touch and become paying customers. Month after month.</div></div></div>
         </div>
         <p class="fw2-hint reveal">Hover a stage to open it up.</p>
     </div>
@@ -456,37 +470,37 @@ footer{border-top:1px solid var(--border);padding:40px 48px;display:flex;justify
                 <div class="glass tl-card" style="grid-column:1;">
                     <span class="tl-badge">Month 1</span>
                     <h3>Foundation</h3>
-                    <p>We kick off with a 90 minute onboarding call to lock your goals, agree your brand pillars and get your ad account set up. Then we get to work building the engine.</p>
+                    <p>We start with a 90 minute call to get clear on your goals and set up your ad account. Then we get filming and building.</p>
                     <ul>
-                        <li>Onboarding call, goals and brand pillars locked</li>
-                        <li>Filming your ads and organic content</li>
-                        <li>Professional editing, built to sell</li>
-                        <li>Everything published and live</li>
+                        <li>Kick-off call, goals sorted</li>
+                        <li>Filming your ads and everyday videos</li>
+                        <li>Professional editing, made to sell</li>
+                        <li>Everything posted and live</li>
                     </ul>
-                    <p class="tl-out">Outcome: a clear plan and content flowing.</p>
+                    <p class="tl-out">Outcome: a clear plan and videos going out.</p>
                 </div>
                 <div class="glass tl-card" style="grid-column:2 / 4;">
                     <span class="tl-badge">Months 2 and 3</span>
                     <h3>Build and scale</h3>
-                    <p>With the foundation live, we pour fuel on what's working and turn your content into a steady flow of enquiries.</p>
+                    <p>Now the basics are live, we do more of what's working and turn it into a steady stream of enquiries.</p>
                     <ul>
                         <li>More ads where they're needed</li>
-                        <li>Doubling down on the content bringing the most leads</li>
-                        <li>Refining the message, the targeting and the offer</li>
-                        <li>Growing your presence into a reliable source of enquiries</li>
+                        <li>More of the videos that bring the most enquiries</li>
+                        <li>Fine-tuning the message and who we show it to</li>
+                        <li>Turning your pages into a steady source of enquiries</li>
                     </ul>
-                    <p class="tl-out">Outcome: a proper lead machine.</p>
+                    <p class="tl-out">Outcome: a steady stream of new enquiries.</p>
                 </div>
                 <div class="glass tl-card future" style="grid-column:4;">
                     <span class="tl-badge">Beyond</span>
-                    <h3>Carry on and compound</h3>
-                    <p>Most partners don't stop at 3 months. By then the flywheel is spinning and the enquiries are rolling in, so you can keep the momentum going for as long as it's working.</p>
+                    <h3>Keep it going</h3>
+                    <p>Most people carry on past 3 months. By then it's working and the enquiries are coming in, so you keep it going for as long as you're happy.</p>
                     <ul>
-                        <li>No lock-in, you choose to continue</li>
+                        <li>No lock-in, you choose to carry on</li>
                         <li>We keep building on what we've made</li>
-                        <li>The results compound month on month</li>
+                        <li>It gets better every month</li>
                     </ul>
-                    <p class="tl-out">Outcome: momentum that keeps growing.</p>
+                    <p class="tl-out">Outcome: growth that keeps building.</p>
                 </div>
             </div>
         </div>
@@ -498,11 +512,11 @@ footer{border-top:1px solid var(--border);padding:40px 48px;display:flex;justify
     <div class="wrap">
         <div class="vip reveal">
             <span class="vlabel">Exclusive package</span>
-            <h2>We bring you the leads. <span class="mark-inv">Let's close them too.</span></h2>
-            <p class="vlead">Here's the thing. We can fill your inbox with leads, but sitting in your DMs all day having those conversations is a full time job on its own. That's what this package is for. It's the complete done-for-you service, so every lead gets looked after and nothing slips through.</p>
+            <h2>We get you the enquiries. <span class="mark-inv">Let us handle them too.</span></h2>
+            <p class="vlead">Here's the thing. We can fill your inbox with enquiries, but replying to everyone all day is a full time job on its own. That's what this is for. We do the lot for you, so every message gets a reply and nobody slips through the cracks.</p>
             <div class="vfeat">
-                <div class="vf"><div class="ico">AI</div><div><h3>An AI setter in your DMs</h3><p>Talks to every prospect, answers the questions, and books them straight onto calls or into appointments. You just turn up to the ones ready to buy.</p></div></div>
-                <div class="vf"><div class="ico">&#9998;</div><div><h3>Full social media management</h3><p>We run the posting, the scheduling and the community engagement across your channels, so you stay consistent without lifting a finger.</p></div></div>
+                <div class="vf"><div class="ico">&#128172;</div><div><h3>We reply to your messages</h3><p>When someone messages you on Instagram, we chat to them, answer their questions, and book them in for a call or an appointment. You just turn up to the ones ready to buy.</p></div></div>
+                <div class="vf"><div class="ico">&#9998;</div><div><h3>We run your social media</h3><p>We post for you, plan it all out ahead of time, and reply to your comments, so your pages stay active without you lifting a finger.</p></div></div>
             </div>
         </div>
     </div>
@@ -519,12 +533,12 @@ footer{border-top:1px solid var(--border);padding:40px 48px;display:flex;justify
             <img class="clogo" src="padelheim-logo.png" alt="Padelheim" onerror="this.style.display='none';this.nextElementSibling.style.display='inline-flex'">
             <span class="clogo-ph" style="display:none">Padelheim logo</span>
             <h3>Brand new page, no audience. Look where we got to.</h3>
-            <p class="csub">We built Padelheim from scratch. Off the back of £352 in ad spend, one giveaway campaign turned a page with nobody on it into a genuine pipeline of hot, ready-to-buy leads. Not vanity followers, actual people who want to buy.</p>
+            <p class="csub">We built Padelheim from scratch. With just £352 spent on ads, one giveaway turned a brand new page into a list of real people ready to buy. Not just followers for the sake of it, actual customers waiting to sign up.</p>
             <div class="stat-grid">
-                <div class="stat"><div class="sv">£352</div><div class="sl">Total ad spend</div></div>
+                <div class="stat"><div class="sv">£352</div><div class="sl">Spent on ads</div></div>
                 <div class="stat"><div class="sv">16x</div><div class="sl">Follower growth, 113 to 1,833</div></div>
-                <div class="stat"><div class="sv">261</div><div class="sl">Hot leads from one giveaway</div></div>
-                <div class="stat"><div class="sv">£544k+</div><div class="sl">Annual pipeline value</div></div>
+                <div class="stat"><div class="sv">261</div><div class="sl">People ready to buy</div></div>
+                <div class="stat"><div class="sv">£544k+</div><div class="sl">Possible sales in a year</div></div>
             </div>
             <div class="ba">
                 <figure><img class="ba-img" src="padelheim-before.png" alt="Padelheim Instagram before"><figcaption>Before</figcaption></figure>
@@ -534,30 +548,14 @@ footer{border-top:1px solid var(--border);padding:40px 48px;display:flex;justify
             <p class="case-attr">Jack Stevens, Padelheim</p>
         </div>
 
-        <!-- testimonial / case tiles (white) -->
-        <div class="tgrid reveal">
-            <div class="tcard">
-                <div class="thead"><div><div class="tname">X Media Group</div><div class="tniche">Us, right now</div></div><img class="tlogo" src="xmg-logo-black.png" alt="X Media Group" onerror="this.style.display='none'"></div>
-                <p class="tstat">We run the exact same system on ourselves, and in July, from £655 in ad spend, we brought in over £12,000 of new business.</p>
-                <div class="tmetrics"><div><div class="tmv">18x</div><div class="tml">Return on ad spend</div></div><div><div class="tmv">£12k+</div><div class="tml">New business</div></div></div>
-            </div>
-            <div class="tcard">
-                <div class="thead"><div><div class="tname">Harkin Walker</div><div class="tniche">Interior Design</div></div><img class="tlogo" src="harkin-walker-logo.png" alt="Harkin Walker" onerror="this.style.display='none'"></div>
-                <p class="tquote">"We've over doubled our followers on Instagram. Coventry Football Club came off the back of the ads, a really prestigious project."</p>
-                <div class="tmetrics"><div><div class="tmv">2x</div><div class="tml">Instagram followers</div></div><div><div class="tmv">9 mo</div><div class="tml">Working together</div></div></div>
-            </div>
-            <div class="tcard">
-                <div class="thead"><div><div class="tname">TIG Growth</div><div class="tniche">Business Coaching</div></div><img class="tlogo" src="tig-growth-logo.png" alt="TIG Growth" onerror="this.style.display='none'"></div>
-                <p class="tquote">"You've got the content covered. It has allowed me to focus on my business knowing that's taken care of."</p>
-                <div class="tmetrics"><div><div class="tmv">100%</div><div class="tml">Would recommend</div></div><div><div class="tmv">4 mo</div><div class="tml">Working together</div></div></div>
-            </div>
-            <div class="tcard">
-                <div class="thead"><div><div class="tname">Dream Smiles Studio</div><div class="tniche">Dental &amp; Aesthetics</div></div><img class="tlogo" src="dream-smiles-logo.png" alt="Dream Smiles Studio" onerror="this.style.display='none'"></div>
-                <p class="tquote">"You are my in-house marketing team but you are not in-house. This is exactly what I wanted."</p>
-                <div class="tmetrics"><div><div class="tmv">Active</div><div class="tml">Creative partner</div></div><div><div class="tmv">2026</div><div class="tml">Clinic launch</div></div></div>
-            </div>
+        <!-- video testimonials: YouTube Shorts, play inline on the page -->
+        <div class="vids reveal">
+            <figure class="vcard" data-yt="YwspbBlXXSc"><div class="vframe"><div class="vph"><span class="vph-ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>Add Short link</div></div><figcaption>Harkin Walker</figcaption></figure>
+            <figure class="vcard" data-yt="yqQpOfDU8HY"><div class="vframe"><div class="vph"><span class="vph-ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>Add Short link</div></div><figcaption>Harkin Walker</figcaption></figure>
+            <figure class="vcard" data-yt="bT98Y2vgbI4"><div class="vframe"><div class="vph"><span class="vph-ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>Add Short link</div></div><figcaption>X Media Group</figcaption></figure>
+            <figure class="vcard" data-yt="egYVw02hihs"><div class="vframe"><div class="vph"><span class="vph-ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>Add Short link</div></div><figcaption>X Media Group</figcaption></figure>
         </div>
-        <p class="more-note reveal">Room here for more case studies as they land.</p>
+        <p class="more-note reveal">Tap a video to play it, right here on the page.</p>
     </div>
 </section>
 
@@ -570,15 +568,15 @@ footer{border-top:1px solid var(--border);padding:40px 48px;display:flex;justify
         <div class="ff">
             <div class="glass col yes reveal"><h3>If this is you, we will work well together</h3><ul>
                 <li>You want to be the go-to name in your area</li>
-                <li>Happy to show up on camera or have your service filmed</li>
-                <li>You can commit a minimum ad budget of £15 a day</li>
-                <li>You want a partner, not a one-off videographer</li>
-                <li>Ready to commit to a proper 3 month build</li>
+                <li>Happy to get on camera or have your work filmed</li>
+                <li>You can spend at least £15 a day on ads</li>
+                <li>You want a partner, not a one-off video person</li>
+                <li>Happy to commit to the full 3 months</li>
             </ul></div>
             <div class="glass col no reveal"><h3>This isn't the right fit</h3><ul>
                 <li>Chasing the cheapest one-off job</li>
                 <li>Looking for overnight success with no commitment</li>
-                <li>Not ready to trust a system and let it work</li>
+                <li>Not ready to trust the process and let it work</li>
                 <li>Not willing to show up for your own brand</li>
             </ul></div>
         </div>
@@ -593,7 +591,7 @@ footer{border-top:1px solid var(--border);padding:40px 48px;display:flex;justify
         <p class="lead reveal" style="margin:0 auto;">We keep the numbers low so the standard stays high, and we protect the businesses we work with.</p>
         <div class="two">
             <div class="glass col reveal"><div class="big">4</div><h3>New businesses a month</h3><p>We take on only 4 new partners each month, so the quality of what we deliver never slips. When this month is full, it's full.</p></div>
-            <div class="glass col reveal"><div class="big">1</div><h3>Per business type, per 10 miles</h3><p>We work with only one business of your type within a 10 mile radius. Once your category in your area is claimed, your competitor can't have it.</p></div>
+            <div class="glass col reveal"><div class="big">1</div><h3>One business like yours, per 10 miles</h3><p>We only work with one business like yours within 10 miles. Once someone in your trade near you signs up, your rival can't have us.</p></div>
         </div>
     </div>
 </section>
@@ -604,7 +602,7 @@ footer{border-top:1px solid var(--border);padding:40px 48px;display:flex;justify
         <div class="label reveal" style="justify-content:center;">Our promise</div>
         <h2 class="reveal">If you show up, <span class="mark">this works.</span></h2>
         <p class="reveal">Here's the honest answer. The only way this doesn't work is if you don't want it to. If you show up and let's do our job, it works.</p>
-        <p class="reveal">We're not going to promise you overnight success, because anyone who does is having you on. We build systems that compound month on month, and the businesses that win are the ones that back it and let's make them the obvious choice in their area.</p>
+        <p class="reveal">We're not going to promise you overnight success, because anyone who does is having you on. We build something that gets better every month, and the businesses that win are the ones who back it and let us make them the name everyone knows in their area.</p>
         <p class="reveal"><span class="kicker">If you're ready to go all in on becoming the name people know, so are we.</span></p>
     </div>
 </section>
@@ -638,12 +636,12 @@ footer{border-top:1px solid var(--border);padding:40px 48px;display:flex;justify
                 <div class="pc-tag">Social media management</div>
                 <div class="amt">+£500<small> / month</small></div>
                 <div class="vat">plus VAT, added to either option</div>
-                <p class="note">Social media management, the complete done-for-you service:</p>
+                <p class="note">We handle your social media, the whole lot for you:</p>
                 <ul class="inc">
-                    <li>AI setter working your DMs</li>
-                    <li>Booking leads onto calls and appointments</li>
-                    <li>Posting and scheduling across your channels</li>
-                    <li>Community engagement and replies</li>
+                    <li>We reply to your messages</li>
+                    <li>We book calls and appointments</li>
+                    <li>We post for you and plan ahead</li>
+                    <li>We reply to your comments</li>
                 </ul>
                 <div class="add-hint" id="addon-hint">Available as an add-on</div>
             </div>
@@ -665,14 +663,14 @@ footer{border-top:1px solid var(--border);padding:40px 48px;display:flex;justify
         <div class="label reveal" style="justify-content:center;text-align:center;width:100%;">FAQ</div>
         <h2 class="reveal" style="text-align:center;">The questions we get asked <span class="mark">the most.</span></h2>
         <div style="margin-top:40px;" class="reveal">
-            <div class="faq-item"><button class="faq-q">How soon will I see results?</button><div class="faq-a"><p>Content is going live in month one. The enquiries build as the ads and the organic content start working together through months two and three. It's not a lottery ticket, it's a system, and the businesses that commit are the ones that see it pay off.</p></div></div>
-            <div class="faq-item"><button class="faq-q">What do I actually need to do?</button><div class="faq-a"><p>Honestly? Show up for filming and keep doing what you're great at. We handle the filming, the editing and the ads. Add the VIP package and we handle the posting and the DMs too.</p></div></div>
+            <div class="faq-item"><button class="faq-q">How soon will I see results?</button><div class="faq-a"><p>Your videos start going out in month one. The enquiries build as the ads and the posts start working together through months two and three. It's not a magic button, it's a system, and the people who stick with it are the ones who see it pay off.</p></div></div>
+            <div class="faq-item"><button class="faq-q">What do I actually need to do?</button><div class="faq-a"><p>Honestly? Show up for filming and keep doing what you're great at. We do the filming, the editing and the ads. Add the social media package and we do the posts and reply to your messages too.</p></div></div>
             <div class="faq-item"><button class="faq-q">Do I need to be on camera?</button><div class="faq-a"><p>It helps, because people buy from people, but it's not the only way. We can build it around your service, your team and your work. We will figure out what feels right for you on the onboarding call.</p></div></div>
             <div class="faq-item"><button class="faq-q">How long is the commitment?</button><div class="faq-a"><p>It's a three month build. You can go monthly at £1,500 plus VAT, or pay in full at £4,000 plus VAT and save yourself £500.</p></div></div>
-            <div class="faq-item"><button class="faq-q">What happens after the 3 months?</button><div class="faq-a"><p>Most partners carry on, because by then the engine is running and the enquiries are coming in. We will have a chat near the end about the best way forward. However there's no lock in following our 3 month build.</p></div></div>
+            <div class="faq-item"><button class="faq-q">What happens after the 3 months?</button><div class="faq-a"><p>Most people carry on, because by then it's working and the enquiries are coming in. We'll have a chat near the end about the best way forward. However there's no lock in following our 3 month build.</p></div></div>
             <div class="faq-item"><button class="faq-q">Do I need to know anything about ads?</button><div class="faq-a"><p>Not a thing. To be honest, you never have to touch the ad account. We set it up on the onboarding call and run the whole thing for you.</p></div></div>
-            <div class="faq-item"><button class="faq-q">What's the social media management package?</button><div class="faq-a"><p>It's the complete done-for-you service, built for business owners who simply want the whole thing handled. We run your posting, and we put an AI setter in your DMs to talk to people and book them onto calls or into appointments. All you do is invest and watch the results come in.</p></div></div>
-            <div class="faq-item"><button class="faq-q">Is there a guarantee?</button><div class="faq-a"><p>The only way this doesn't work is if you don't want it to. We won't promise overnight success, because anyone who does is having you on. We build systems that compound, and the partners who back it are the ones who win.</p></div></div>
+            <div class="faq-item"><button class="faq-q">What's the social media management package?</button><div class="faq-a"><p>It's for business owners who just want the whole thing handled. We post for you, and when people message you we reply for you and book them in for calls or appointments. All you do is invest and watch the results come in.</p></div></div>
+            <div class="faq-item"><button class="faq-q">Is there a guarantee?</button><div class="faq-a"><p>The only way this doesn't work is if you don't want it to. We won't promise overnight success, because anyone who does is having you on. We build something that gets better over time, and the people who back it are the ones who win.</p></div></div>
         </div>
     </div>
 </section>
@@ -702,13 +700,13 @@ footer{border-top:1px solid var(--border);padding:40px 48px;display:flex;justify
 <div id="addon-modal" aria-hidden="true">
     <div class="addon-panel">
         <div class="addon-q">One last thing</div>
-        <h3>Would you like to add Social Media Management?</h3>
+        <h3>Would you like us to handle your social media too?</h3>
         <div class="addon-price">+£500 / month <span>plus VAT</span></div>
         <ul class="addon-inc">
-            <li>AI setter working your DMs</li>
-            <li>Booking leads onto calls and appointments</li>
-            <li>Posting and scheduling across your channels</li>
-            <li>Community engagement and replies</li>
+            <li>We reply to your messages</li>
+            <li>We book calls and appointments</li>
+            <li>We post for you and plan ahead</li>
+            <li>We reply to your comments</li>
         </ul>
         <div class="addon-actions">
             <button class="btn" id="addon-yes">Yes, add it</button>
@@ -844,6 +842,29 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
         window.open('https://wa.me/'+WA_NUMBER+'?text='+encodeURIComponent(msg),'_blank');
     });
     render();
+})();
+
+/* video testimonials: tap to play inline (YouTube), never leaves the page */
+(function(){
+    document.querySelectorAll('.vcard[data-yt]').forEach(card=>{
+        const id=(card.dataset.yt||'').trim();
+        const frame=card.querySelector('.vframe');
+        if(!id||!frame) return;                 // no id yet -> keep the placeholder
+        frame.innerHTML='';
+        const thumb=document.createElement('img');
+        thumb.className='vthumb'; thumb.loading='lazy'; thumb.alt='';
+        thumb.src='https://i.ytimg.com/vi/'+id+'/hqdefault.jpg';
+        const play=document.createElement('div'); play.className='vplay';
+        play.innerHTML='<svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>';
+        frame.appendChild(thumb); frame.appendChild(play);
+        frame.addEventListener('click',()=>{
+            const ifr=document.createElement('iframe');
+            ifr.src='https://www.youtube.com/embed/'+id+'?autoplay=1&playsinline=1&rel=0&modestbranding=1';
+            ifr.allow='autoplay; encrypted-media; picture-in-picture';
+            ifr.setAttribute('allowfullscreen','');
+            frame.innerHTML=''; frame.appendChild(ifr);
+        },{once:true});
+    });
 })();
 
 /* faq accordion */
