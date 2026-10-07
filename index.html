@@ -237,6 +237,11 @@ h2{font-size:clamp(34px,4.8vw,60px);margin-bottom:18px;}
 .excl .col{padding:36px 34px;}
 .excl h3{font-family:var(--display);font-size:20px;font-weight:500;margin-bottom:8px;}
 .excl p{font-size:16px;font-weight:400;color:var(--muted);line-height:1.65;}
+.excl .stage{position:relative;min-height:520px;display:flex;align-items:center;justify-content:center;margin-top:30px;}
+.excl .map3d{position:absolute;inset:-120px -40px;display:flex;align-items:center;justify-content:center;perspective:1200px;pointer-events:none;z-index:0;}
+.excl .map3d svg{width:400px;height:auto;opacity:0.75;transform:translateY(-250px) rotateX(48deg) rotateZ(18deg) rotateY(-6deg);transform-origin:center;}
+.excl .stage .col{position:relative;z-index:1;max-width:520px;width:100%;}
+@media(max-width:600px){.excl .stage{min-height:460px;}.excl .map3d svg{width:300px;transform:translateY(-200px) rotateX(48deg) rotateZ(18deg) rotateY(-6deg);}}
 
 /* guarantee */
 .guar{text-align:center;}
@@ -587,7 +592,56 @@ footer{border-top:1px solid var(--border);padding:40px 48px;display:flex;justify
         <div class="label reveal" style="justify-content:center;">Exclusivity</div>
         <h2 class="reveal">When your spot is gone, <span class="mark">it's gone.</span></h2>
         <p class="lead reveal" style="margin:0 auto;">We protect the businesses we work with, so you get us and your competitor doesn't.</p>
-        <div class="two" style="grid-template-columns:1fr;max-width:520px;margin-left:auto;margin-right:auto;">
+        <div class="stage">
+            <div class="map3d reveal" aria-hidden="true">
+                <svg viewBox="0 0 480 894" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <filter id="bloom" x="-80%" y="-80%" width="260%" height="260%">
+                        <feGaussianBlur stdDeviation="2" result="a"/>
+                        <feGaussianBlur in="SourceGraphic" stdDeviation="6" result="b"/>
+                        <feGaussianBlur in="SourceGraphic" stdDeviation="13" result="c"/>
+                        <feMerge><feMergeNode in="c"/><feMergeNode in="b"/><feMergeNode in="a"/><feMergeNode in="SourceGraphic"/></feMerge>
+                    </filter>
+                    <filter id="haze" x="-140%" y="-140%" width="380%" height="380%"><feGaussianBlur stdDeviation="14"/></filter>
+                    <linearGradient id="gSharp" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" stop-color="#fff" stop-opacity="0.08"/>
+                        <stop offset="32%" stop-color="#fff" stop-opacity="0.3"/>
+                        <stop offset="55%" stop-color="#fff" stop-opacity="1"/>
+                        <stop offset="85%" stop-color="#fff" stop-opacity="0.92"/>
+                        <stop offset="100%" stop-color="#fff" stop-opacity="0.6"/>
+                    </linearGradient>
+                    <linearGradient id="gHaze" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" stop-color="#fff" stop-opacity="1"/>
+                        <stop offset="50%" stop-color="#fff" stop-opacity="0.6"/>
+                        <stop offset="100%" stop-color="#fff" stop-opacity="0.3"/>
+                    </linearGradient>
+                    <mask id="mSharp"><rect width="480" height="894" fill="url(#gSharp)"/></mask>
+                    <mask id="mHaze"><rect width="480" height="894" fill="url(#gHaze)"/></mask>
+                    <linearGradient id="landfill" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" stop-color="#B1AB94" stop-opacity="0.12"/>
+                        <stop offset="60%" stop-color="#B1AB94" stop-opacity="0.26"/>
+                        <stop offset="100%" stop-color="#CFC9B0" stop-opacity="0.34"/>
+                    </linearGradient>
+                    <pattern id="grid" width="42" height="42" patternUnits="userSpaceOnUse"><path d="M42 0 H0 V42" fill="none" stroke="#B1AB94" stroke-width="0.6" stroke-opacity="0.45"/></pattern>
+                    <radialGradient id="halo" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#EFE9D2" stop-opacity="0.9"/><stop offset="45%" stop-color="#B1AB94" stop-opacity="0.5"/><stop offset="100%" stop-color="#B1AB94" stop-opacity="0"/></radialGradient>
+                    <filter id="dotGlow" x="-400%" y="-400%" width="900%" height="900%"><feGaussianBlur stdDeviation="3.5"/></filter>
+                    <path id="gb" d="M33.8,873.0 L47.9,859.0 L71.2,838.0 L79.4,826.0 L102.1,797.0 L103.3,778.0 L165.1,759.0 L196.7,746.0 L182.6,734.0 L176.8,740.0 L137.7,718.0 L116.7,723.0 L110.9,707.0 L72.9,710.0 L57.8,690.0 L95.7,672.0 L129.5,639.0 L92.8,600.0 L118.5,566.0 L97.5,549.0 L144.1,548.0 L166.9,548.0 L191.4,539.0 L192.0,515.0 L189.7,498.0 L200.2,473.0 L179.1,469.0 L158.1,425.0 L180.9,390.0 L157.6,392.0 L84.0,417.0 L68.9,396.0 L84.0,356.0 L97.5,334.0 L89.9,285.0 L29.2,349.0 L48.4,239.0 L4.1,207.0 L27.4,180.0 L66.5,90.0 L76.4,17.0 L90.4,23.0 L171.6,13.0 L188.5,16.0 L187.3,36.0 L154.6,68.0 L121.4,132.0 L176.2,108.0 L250.9,111.0 L263.8,129.0 L245.1,165.0 L223.5,209.0 L194.3,234.0 L204.8,246.0 L208.9,274.0 L220.6,280.0 L250.9,303.0 L284.8,378.0 L297.0,411.0 L332.0,431.0 L344.9,452.0 L363.0,468.0 L360.6,522.0 L387.5,566.0 L391.0,605.0 L396.2,586.0 L443.5,587.0 L468.6,620.0 L469.8,633.0 L461.0,665.0 L442.3,686.0 L409.1,726.0 L448.2,741.0 L444.1,767.0 L423.7,789.0 L400.9,795.0 L382.8,806.0 L359.5,798.0 L322.1,807.0 L258.5,808.0 L224.1,823.0 L196.1,808.0 L168.6,818.0 L155.2,858.0 L126.0,845.0 L71.8,865.0 L64.2,884.0 Z" fill="none"/>
+                </defs>
+                <g mask="url(#mSharp)" opacity="0.3"><rect x="-80" y="200" width="640" height="894" fill="url(#grid)"/></g>
+                <g mask="url(#mHaze)"><use href="#gb" fill="#B1AB94" filter="url(#haze)" opacity="0.8"/></g>
+                <g mask="url(#mSharp)"><use href="#gb" fill="url(#landfill)"/></g>
+                <g mask="url(#mSharp)"><use href="#gb" fill="none" stroke="#F2ECD6" stroke-width="1.6" stroke-linejoin="round" filter="url(#bloom)"/></g>
+                <g fill="rgba(240,237,232,0.5)" font-family="Helvetica,Arial,sans-serif" mask="url(#mSharp)">
+                    <circle cx="256.9" cy="631.4" r="1.6"/><text x="262.9" y="627.4" font-size="10.5">Birmingham</text>
+                    <circle cx="238.1" cy="660.8" r="1.6"/><text x="232.1" y="672.8" font-size="10.5" text-anchor="end">Worcester</text>
+                    <circle cx="254.4" cy="649.4" r="1.6"/><text x="260.4" y="660.4" font-size="10.5">Redditch</text>
+                </g>
+                <circle cx="247.5" cy="646.5" r="20" fill="url(#halo)"/>
+                <circle cx="247.5" cy="646.5" r="4.5" fill="#F2ECD6" filter="url(#dotGlow)"/>
+                <circle cx="247.5" cy="646.5" r="2.6" fill="#FBF8EF"/>
+                <text x="247.5" y="684.5" font-size="18" font-weight="700" text-anchor="middle" fill="#FBF8EF" font-family="Helvetica,Arial,sans-serif">Bromsgrove</text>
+            </svg>
+            </div>
             <div class="glass col reveal"><div class="big">1</div><h3>Lock in your area</h3><p>When you sign up with us, you lock in your industry, in your area. They're your leads, and your leads only.</p></div>
         </div>
     </div>
